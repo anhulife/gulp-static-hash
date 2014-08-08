@@ -1,0 +1,36 @@
+{
+	"name": "gulp-static-hash",
+	"version": "0.0.1",
+	"description": "A gulp plugin for cache files by adding a hash version append their name(like a.js?v=hash)",
+	"license": "MIT",
+	"keywords": [
+		"cache",
+		"md5",
+		"version",
+		"gulpplugin"
+	],
+	"author": {
+		"name": "anhulife",
+		"email": "anhulife@gmail.com"
+	},
+	"homepage": "https://github.com/anhulife/gulp-static-hash",
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:anhulife/gulp-static-hash.git"
+	},
+	"scripts": {
+		"test": "mocha"
+	},
+	"files": [
+		"index.js"
+	],
+	"dependencies": {
+		"gulp-util": "^3.0.0",
+		"through2": "^0.5.1"
+	},
+	"devDependencies": {
+		"concat-stream": "^1.4.6",
+		"gulp": "^3.8.7",
+		"mocha": "*"
+	}
+}
