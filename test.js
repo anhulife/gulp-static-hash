@@ -10,7 +10,9 @@ describe('generate hash', function () {
 			.pipe(staticHash({cwd: './fixture'}))
 			.pipe(gulp.dest('./fixture/'))
 			.pipe(concatStream(function(buf){
-				assert.notEqual(-1, buf[0].contents.toString().indexOf('a9f2e1463b2e5f72027b2e9cd8501b2b'));
+				buf.forEach(function(item){
+					assert.notEqual(-1, item.contents.toString().indexOf('a9f2e1463b2e5f72027b2e9cd8501b2b'));
+				});
 				cb();
 			}));
 	});
@@ -20,17 +22,21 @@ describe('generate hash', function () {
 			.pipe(staticHash({cwd: './fixture'}))
 			.pipe(gulp.dest('./fixture/'))
 			.pipe(concatStream(function(buf){
-				assert.notEqual(-1, buf[0].contents.toString().indexOf('a9f2e1463b2e5f72027b2e9cd8501b2b'));
+				buf.forEach(function(item){
+					assert.notEqual(-1, item.contents.toString().indexOf('a9f2e1463b2e5f72027b2e9cd8501b2b'));
+				});
 				cb();
 			}));
 	});
 
 	it('html', function (cb) {
 		gulp.src('fixture/**/a.html')
-			.pipe(staticHash({cwd: './fixture'}))
+			.pipe(staticHash({asset: './fixture'}))
 			.pipe(gulp.dest('./fixture/'))
 			.pipe(concatStream(function(buf){
-				assert.notEqual(-1, buf[0].contents.toString().indexOf('a9f2e1463b2e5f72027b2e9cd8501b2b'));
+				buf.forEach(function(item){
+					assert.notEqual(-1, item.contents.toString().indexOf('a9f2e1463b2e5f72027b2e9cd8501b2b'));
+				});
 				cb();
 			}));
 	});

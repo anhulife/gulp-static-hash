@@ -31,6 +31,8 @@ gulp.task('static-hash-css', function () {
 <link rel="stylesheet" href="main.min.css">
 <script src="main.min.js"></script>
 <img src="main.png" />
+<!-- sub version -->
+<img src="main.png?sv=20140808" />
 ```
 
 #### Output:
@@ -39,11 +41,13 @@ gulp.task('static-hash-css', function () {
 <link rel="stylesheet" href="main.min.css?v=a9f2e1463b2e5f72027b2e9cd8501b2b">
 <script src="main.min.js?v=a9f2e1463b2e5f72027b2e9cd8501b2b"></script>
 <img src="main.png?v=a9f2e1463b2e5f72027b2e9cd8501b2b" />
+<!-- sub version -->
+<img src="main.png?v=a9f2e1463b2e5f72027b2e9cd8501b2b&sv=20140808" />
 ```
 
 ### Options
 
-##### cwd: 'static'
+##### asset: 'static'
 
 The path to assets in your project
 

@@ -13,9 +13,9 @@ function sha1(filePath) {
 }
 
 module.exports = function (options) {
-	var contents, mainPath, reg, cwd;
+	var contents, mainPath, reg, asset;
 
-	cwd = options.cwd || process.cwd();
+	asset = options.asset || process.cwd();
 
 	reg = new RegExp('["\'\\(]\\s*([\\w\\_\/\\.]*\\.('+ (options.exts ? options.exts.join('|') : 'jpg|jpeg|png|gif|cur|js|css') +'))(\\?.*)?\\s*[\\)"\']', 'gim');
 
@@ -33,9 +33,9 @@ module.exports = function (options) {
 		mainPath = path.dirname(file.path);
 
 		contents = file.contents.toString().replace(reg, function(content, filePath, ext, version){
-			var fullPath = path.resolve(cwd, mainPath, filePath);
+			var fullPath = path.resolve(asset, mainPath, filePath);
 			if(fs.existsSync(fullPath)){
-				return content.replace(version || '', '').replace(filePath, filePath + '?v=' + sha1(path.resolve(cwd, mainPath, filePath)));
+				return content.replace(version || '', (/sv/.test(version) ? ('&sv=' + version.split('=')[1]) : '')).replace(filePath, filePath + '?v=' + sha1(fullPath));
 			}else{
 				return content;
 			}
