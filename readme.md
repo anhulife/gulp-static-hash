@@ -39,7 +39,6 @@ gulp.task('static-hash css', function () {
 <link rel="stylesheet" href="main.min.css?v=a9f2e1463b2e5f72027b2e9cd8501b2b">
 <script src="main.min.js?v=a9f2e1463b2e5f72027b2e9cd8501b2b"></script>
 <img src="main.png?v=a9f2e1463b2e5f72027b2e9cd8501b2b" />
-<!-- end -->
 ```
 
 ### Options
