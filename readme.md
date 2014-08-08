@@ -20,7 +20,7 @@ var staticHash = require('gulp-static-hash');
 
 gulp.task('static-hash-css', function () {
 	gulp.src('static/**/*.css')
-		.pipe(staticHash({cwd: 'static'}))
+		.pipe(staticHash({asset: 'static'}))
 		.pipe(gulp.dest('dest'));
 });
 ```
