@@ -17,7 +17,7 @@ module.exports = function (options) {
 
 	cwd = options.cwd || process.cwd();
 
-	reg = new RegExp('["\'\\(]\\s*([\\w\/\\.]*\\.('+ (options.exts ? options.exts.join('|') : 'jpg|jpeg|png|gif|cur|js|css') +'))(\\?.*)?\\s*[\\)"\']', 'gim');
+	reg = new RegExp('["\'\\(]\\s*([\\w\\_\/\\.]*\\.('+ (options.exts ? options.exts.join('|') : 'jpg|jpeg|png|gif|cur|js|css') +'))(\\?.*)?\\s*[\\)"\']', 'gim');
 
 	return through.obj(function (file, enc, callback) {
 		if (file.isNull()) {
