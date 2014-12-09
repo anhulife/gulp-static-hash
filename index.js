@@ -9,7 +9,7 @@ var through = require('through2');
 function sha1(filePath) {
 	return crypto.createHash('md5')
 		.update(fs.readFileSync(filePath))
-		.digest("hex");
+		.digest('hex');
 }
 
 module.exports = function (options) {
@@ -33,7 +33,7 @@ module.exports = function (options) {
 		mainPath = path.dirname(file.path);
 
 		contents = file.contents.toString().replace(reg, function(content, filePath, ext, version){
-			var fullPath
+			var fullPath;
 
 			if(/^\//.test(filePath)){
 				fullPath = path.resolve(asset, filePath.slice(1));
