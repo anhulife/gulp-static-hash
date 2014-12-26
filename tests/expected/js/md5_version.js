@@ -1,0 +1,1 @@
+var x = '../img/a.png?v=a9f2e1463b2e5f72027b2e9cd8501b2b';

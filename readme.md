@@ -54,3 +54,5 @@ The path to assets in your project
 ##### exts: ['js', 'css', 'png']
 
 The extension list need add hash version
+
+#### md5BuildAsset: 'static'
