@@ -1,1 +1,1 @@
-var x = '../img/a_cc548745008f011b5f3f5a39a5f3f101.png';
+var x = '../img/a_5f3f101.png';

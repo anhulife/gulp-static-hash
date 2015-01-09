@@ -9,7 +9,7 @@ var through = require('through2');
 function sha1(filePath) {
 	return crypto.createHash('md5')
 		.update(fs.readFileSync(filePath))
-		.digest('hex');
+		.digest('hex').slice(-7);
 }
 
 function buildMD5File(src) {
