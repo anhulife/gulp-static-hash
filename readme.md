@@ -31,8 +31,6 @@ gulp.task('static-hash-css', function () {
 <link rel="stylesheet" href="main.min.css">
 <script src="main.min.js"></script>
 <img src="main.png" />
-<!-- sub version -->
-<img src="main.png?sv=20140808" />
 ```
 
 #### Output:
@@ -41,8 +39,6 @@ gulp.task('static-hash-css', function () {
 <link rel="stylesheet" href="main.min.css?v=8501b2b">
 <script src="main.min.js?v=8501b2b"></script>
 <img src="main.png?v=8501b2b" />
-<!-- sub version -->
-<img src="main.png?v=8501b2b&sv=20140808" />
 ```
 
 ### Options
@@ -55,4 +51,5 @@ The path to assets in your project
 
 The extension list need add hash version
 
-#### md5BuildAsset: 'static'
+##### md5BuildAsset: 'static'
+The path to assets in your project used by create md5 file

@@ -32,7 +32,7 @@ module.exports = function (options) {
 
 	md5BuildAsset = options.md5BuildAsset;
 
-	reg = new RegExp('["\'\\(]\\s*([\\w\\_\/\\.\\-]*\\.(' + (options.exts ? options.exts.join('|') : 'jpg|jpeg|png|gif|cur|js|css') + '))(\\?[\\w\\_\\=\\-]+)?\\s*[\\)"\']', 'gim');
+	reg = new RegExp('["\'\\(]\\s*([\\w\\_\/\\.\\-]*\\.(' + (options.exts ? options.exts.join('|') : 'jpg|jpeg|png|gif|cur|js|css') + '))([^\\)"\']*)\\s*[\\)"\']', 'gim');
 
 	return through.obj(function (file, enc, callback) {
 		if (file.isNull()) {
@@ -47,7 +47,7 @@ module.exports = function (options) {
 
 		mainPath = path.dirname(file.path);
 
-		contents = file.contents.toString().replace(reg, function (content, filePath, ext, version) {
+		contents = file.contents.toString().replace(reg, function (content, filePath, ext, other) {
 			var fullPath;
 
 			if (/^\//.test(filePath)) {
@@ -63,7 +63,7 @@ module.exports = function (options) {
 
 					return content.replace(path.basename(filePath), buildMD5File(fullPath));
 				} else {
-					return content.replace(version || '', (/sv/.test(version) ? ('&sv=' + version.split('=')[1]) : '')).replace(filePath, filePath + '?v=' + sha1(fullPath));
+					return content.replace(other, '').replace(filePath, filePath + '?v=' + sha1(fullPath));
 				}
 			} else {
 				return content;
