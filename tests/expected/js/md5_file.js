@@ -1,1 +1,1 @@
-var x = '../img/a_5f3f101.png';
+var x = '../img/a_5f3f101.png?foo=bar#baz';

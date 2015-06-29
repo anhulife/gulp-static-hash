@@ -5,6 +5,7 @@ var path = require('path');
 var crypto = require('crypto');
 var gutil = require('gulp-util');
 var through = require('through2');
+var url = require('url');
 
 function sha1(filePath) {
 	return crypto.createHash('md5')
@@ -63,7 +64,11 @@ module.exports = function (options) {
 
 					return content.replace(path.basename(filePath), buildMD5File(fullPath));
 				} else {
-					return content.replace(other, '').replace(filePath, filePath + '?v=' + sha1(fullPath));
+					var hashURL = url.parse(filePath + other, true);
+					hashURL.search = '';
+					hashURL.query.v = sha1(fullPath);
+
+					return content.replace(other, '').replace(filePath, url.format(hashURL));
 				}
 			} else {
 				return content;
