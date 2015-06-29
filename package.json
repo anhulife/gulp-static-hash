@@ -19,7 +19,7 @@
 		"url": "git@github.com:anhulife/gulp-static-hash.git"
 	},
 	"scripts": {
-		"test": "mocha"
+		"test": "mocha tests"
 	},
 	"files": [
 		"index.js"
