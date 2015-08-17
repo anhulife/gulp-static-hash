@@ -27,6 +27,7 @@ function buildMD5File(src) {
 }
 
 module.exports = function (options) {
+	options = options || {};
 	var contents, mainPath, reg, asset, md5BuildAsset;
 
 	asset = options.asset || process.cwd();

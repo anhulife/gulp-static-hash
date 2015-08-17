@@ -37,6 +37,10 @@ function compare(name, expectedName, stream, done) {
 }
 
 describe('hash version', function () {
+	it('does not append a hash when the file does not exist', function (done) {
+		var stream = staticHash();
+		compare('css/b.css', 'css/b.css', stream, done);
+	});
 	it('css', function (done) {
 		var stream = staticHash({
 			asset: './tests/expected'
