@@ -1,6 +1,6 @@
 {
 	"name": "gulp-static-hash",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"description": "A gulp plugin for cache files by adding a hash version append their name(like a.js?v=hash) or create a hash named file",
 	"license": "MIT",
 	"keywords": [
