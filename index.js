@@ -28,9 +28,11 @@ function buildMD5File(src) {
 
 module.exports = function (options) {
 	options = options || {};
-	var contents, mainPath, reg, asset, md5BuildAsset;
+	var contents, mainPath, reg, asset, md5BuildAsset, urlParamName;
 
 	asset = options.asset || process.cwd();
+
+	urlParamName = options.urlParamName ? options.urlParamName : 'v';
 
 	md5BuildAsset = options.md5BuildAsset;
 
@@ -67,7 +69,7 @@ module.exports = function (options) {
 				} else {
 					var hashURL = url.parse(filePath + other, true);
 					hashURL.search = '';
-					hashURL.query.v = sha1(fullPath);
+					hashURL.query[urlParamName] = sha1(fullPath) + (options.isAdditionExt ? '.' + ext : '');
 
 					return content.replace(other, '').replace(filePath, url.format(hashURL));
 				}
