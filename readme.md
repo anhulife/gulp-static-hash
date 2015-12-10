@@ -1,4 +1,4 @@
-gulp-static-hash
+gulp-resource-hash
 =============
 
 > A gulp plugin for cache files by adding a hash version append their name(like a.js?v=hash).
@@ -6,7 +6,7 @@ gulp-static-hash
 ## Install
 
 ```
-npm install --save-dev gulp-static-hash
+npm install --save-dev gulp-resource-hash
 ```
 
 
@@ -16,7 +16,7 @@ npm install --save-dev gulp-static-hash
 
 ```js
 var gulp = require('gulp');
-var staticHash = require('gulp-static-hash');
+var staticHash = require('gulp-resource-hash');
 
 gulp.task('static-hash-html', function () {
 	gulp.src('static/**/*.html')
