@@ -69,9 +69,9 @@ module.exports = function (options) {
 				} else {
 					var hashURL = url.parse(filePath + other, true);
 					hashURL.search = '';
-					hashURL.query[urlParamName] = sha1(fullPath) + (options.isAdditionExt ? '.' + ext : '');
+					hashURL.query[urlParamName] = sha1(fullPath);
 
-					return content.replace(other, '').replace(filePath, url.format(hashURL));
+					return content.replace(other, '').replace(filePath, url.format(hashURL) + (options.isAdditionExt ? '.' + ext : ''));
 				}
 			} else {
 				return content;
